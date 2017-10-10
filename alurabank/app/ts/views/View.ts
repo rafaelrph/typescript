@@ -1,13 +1,19 @@
 export abstract class View<T> {
 
     protected _elemento: JQuery;
+    private _scape: boolean;
 
-    constructor(seletor: string) {
+    constructor(seletor: string, scape?: boolean) {
         this._elemento = $(seletor);
+        this._scape = scape;
     }
 
     update(model: T) {
-        this._elemento.html(this.template(model));
+        let template = this.template(model);
+        if(this._scape) {
+            template = template.replace(/<script>[\s\S]*?<\/script>/, '');
+        }
+        this._elemento.html(template);
     }
 
     abstract template(model: T): string;
