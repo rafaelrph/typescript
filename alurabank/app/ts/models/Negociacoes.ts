@@ -1,5 +1,5 @@
 import { Negociacao } from './Negociacao';
-import { LogarTempoExecucao } from '../helpers/decorators/LogarTempoExecucao';
+import { LogarTempoExecucao } from '../helpers/decorators/index';
 
 export class Negociacoes {
 
