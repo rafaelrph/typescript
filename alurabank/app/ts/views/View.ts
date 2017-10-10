@@ -3,7 +3,7 @@ export abstract class View<T> {
     protected _elemento: JQuery;
     private _scape: boolean;
 
-    constructor(seletor: string, scape?: boolean) {
+    constructor(seletor: string, scape: boolean = false) {
         this._elemento = $(seletor);
         this._scape = scape;
     }
